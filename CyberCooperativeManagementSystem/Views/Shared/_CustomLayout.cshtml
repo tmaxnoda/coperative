@@ -1,0 +1,440 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Avant</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Avant">
+    <meta name="author" content="The Red Team">
+    @Styles.Render("~/Content/css")
+        @Scripts.Render("~/bundles/modernizr")
+    <!-- <link href="assets/less/styles.less" rel="stylesheet/less" media="all">  -->
+   
+    <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600' rel='stylesheet' type='text/css'>
+
+    <link href="~/CustomViews/Barebones/assets/fonts/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="~/CustomViews/Barebones/assets/fonts/glyphicons/css/glyphicons.min.css" rel="stylesheet" />
+    <link href="~/CustomViews/Barebones/assets/demo/variations/header-black.css" rel='stylesheet' type='text/css' media='all' id='styleswitcher'>
+
+    <link href="~/CustomViews/Barebones/assets/demo/variations/header-black.css" rel='stylesheet' type='text/css' media='all' id='headerswitcher'>
+   
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries. Placeholdr.js enables the placeholder attribute -->
+    <!--[if lt IE 9]>
+        <link rel="stylesheet" href="assets/css/ie8.css">
+        <script type="text/javascript" src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/respond.js/1.1.0/respond.min.js"></script>
+        <script type="text/javascript" src="assets/plugins/charts-flot/excanvas.min.js"></script>
+    <![endif]-->
+    <!-- <link href="assets/less/styles.less" rel="stylesheet/less" media="all">  -->
+    
+    <link href="~/CustomViews/Barebones/assets/css/styles.css?=121" rel="stylesheet" />
+    <link href="~/CustomViews/Barebones/assets/css/styles.css?=113" rel="stylesheet" />
+    <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600" rel='stylesheet' type='text/css'>
+
+   
+    <link href="~/CustomViews/Barebones/assets/demo/variations/default.css" rel='stylesheet' type='text/css' media='all' id='styleswitcher'>
+
+    <link href="~/CustomViews/Barebones/assets/demo/variations/default.css" rel='stylesheet' type='text/css' media='all' id='headerswitcher'>
+    <!-- The following CSS are included as plugins and can be removed if unused-->
+   
+    <link href="~/CustomViews/Barebones/assets/plugins/datatables/dataTables.css" rel="stylesheet" />
+    <link href="~/CustomViews/Barebones/assets/plugins/codeprettifier/prettify.css" rel="stylesheet" />
+    
+    <link href="~/CustomViews/Barebones/assets/plugins/form-toggle/toggles.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap-switch/bootstrap3/bootstrap-switch.min.css" rel="stylesheet" />
+    <!-- <script type="text/javascript" src="assets/js/less.js"></script> -->
+</head>
+
+<body class="">
+    <div id="headerbar">
+        <div class="container">
+            <div class="row">
+               
+            </div>
+        </div>
+    </div>
+
+    <header class="navbar navbar-inverse navbar-fixed-top" role="banner">
+        <a id="leftmenu-trigger" class="tooltips" data-toggle="tooltip" data-placement="right" title="Toggle Sidebar"></a>
+        <a id="rightmenu-trigger" class="tooltips" data-toggle="tooltip" data-placement="left" title="Toggle Infobar"></a>
+
+        <div class="navbar-header pull-left">
+            <a class="navbar-brand" href="index.htm">Cyb Co-operative</a>
+        </div>
+
+        <ul class="nav navbar-nav pull-right toolbar">
+           
+        </ul>
+    </header>
+
+    <div id="page-container">
+        <!-- BEGIN SIDEBAR -->
+        <nav id="page-leftbar" role="navigation">
+            <!-- BEGIN SIDEBAR MENU -->
+            <ul class="acc-menu" id="sidebar">
+                <li id="search">
+                    <a href="javascript:;"><i class="fa fa-search opacity-control"></i></a>
+                    <form>
+                        <input type="text" class="search-query" placeholder="Search...">
+                        <button type="submit"><i class="fa fa-search"></i></button>
+                    </form>
+                </li>
+                <li class="divider"></li>
+                <li><a href="index.htm"><i class="fa fa-home"></i> <span>Dashboard</span></a></li>
+                <li class="divider"></li>
+                <li>
+                    <a href="javascript:;"><i class="fa fa-briefcase"></i> <span>Memebers</span> <span class="badge badge-danger">1</span></a>
+                    <ul class="acc-menu">
+                        <li><a href="extras-signupform.htm">Registered memebers</a></li>
+                        <li><a href="extras-404.htm">Registration</a></li>
+
+                    </ul>
+                </li>
+                <li>
+                    <a href="javascript:;"><i class="fa fa-sitemap"></i> <span>Loan</span></a>
+                    <ul class="acc-menu">
+                        <li><a href="javascript:;">Loan Registration</a></li>
+                        <li>
+                            <a href="javascript:;">Menu Item 2</a>
+                            <ul class="acc-menu">
+                                <li><a href="javascript:;">Menu Item 2.1</a></li>
+                                <li>
+                                    <a href="javascript:;">Menu Item 2.2</a>
+                                    <ul class="acc-menu">
+                                        <li><a href="javascript:;">Menu Item 2.2.1</a></li>
+                                        <li>
+                                            <a href="javascript:;">Menu Item 2.2.2</a>
+                                            <ul class="acc-menu">
+                                                <li><a href="javascript:;">And deeper yet!</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+
+                <li>
+                    <a href="javascript:;"><i class="fa fa-sitemap"></i> <span>Transaction His</span></a>
+
+                </li>
+            </ul>
+            <!-- END SIDEBAR MENU -->
+        </nav>
+
+        <!-- BEGIN RIGHTBAR -->
+        <div id="page-rightbar">
+
+            <div id="chatarea">
+                <div class="chatuser">
+                    <span class="pull-right">Jane Smith</span>
+                    <a id="hidechatbtn" class="btn btn-default btn-sm"><i class="fa fa-arrow-left"></i> Back</a>
+                </div>
+                <div class="chathistory">
+                    <div class="chatmsg">
+                        <p>Hey! How's it going?</p>
+                        <span class="timestamp">1:20:42 PM</span>
+                    </div>
+                    <div class="chatmsg sent">
+                        <p>Not bad... i guess. What about you? Haven't gotten any updates from you in a long time.</p>
+                        <span class="timestamp">1:20:46 PM</span>
+                    </div>
+                    <div class="chatmsg">
+                        <p>Yeah! I've been a bit busy lately. I'll get back to you soon enough.</p>
+                        <span class="timestamp">1:20:54 PM</span>
+                    </div>
+                    <div class="chatmsg sent">
+                        <p>Alright, take care then.</p>
+                        <span class="timestamp">1:21:01 PM</span>
+                    </div>
+                </div>
+                <div class="chatinput">
+                    <textarea name="" rows="2"></textarea>
+                </div>
+            </div>
+
+            <div id="widgetarea">
+                <div class="widget">
+                    <div class="widget-heading">
+                        <a href="javascript:;" data-toggle="collapse" data-target="#accsummary"><h4>Account Summary</h4></a>
+                    </div>
+                    <div class="widget-body collapse in" id="accsummary">
+                        <div class="widget-block" style="background: #7ccc2e; margin-top:10px;">
+                            <div class="pull-left">
+                                <small>Current Balance</small>
+                                <h5>$71,182</h5>
+                            </div>
+                            <div class="pull-right"><div id="currentbalance"></div></div>
+                        </div>
+                        <div class="widget-block" style="background: #595f69;">
+                            <div class="pull-left">
+                                <small>Account Type</small>
+                                <h5>Business Plan A</h5>
+                            </div>
+                            <div class="pull-right">
+                                <small class="text-right">Monthly</small>
+                                <h5>$19<small>.99</small></h5>
+                            </div>
+                        </div>
+                        <span class="more"><a href="#">Upgrade Account</a></span>
+                    </div>
+                </div>
+
+
+                <div id="chatbar" class="widget">
+                    <div class="widget-heading">
+                        <a href="javascript:;" data-toggle="collapse" data-target="#chatbody"><h4>Online Contacts <small>(5)</small></h4></a>
+                    </div>
+                    <div class="widget-body collapse in" id="chatbody">
+                        <ul class="chat-users">
+                            <li data-stats="online"><a href="javascript:;"><img src="assets/demo/avatar/potter.png" alt=""><span>Jeremy Potter</span></a></li>
+                            <li data-stats="online"><a href="javascript:;"><img src="assets/demo/avatar/tennant.png" alt=""><span>David Tennant</span></a></li>
+                            <li data-stats="online"><a href="javascript:;"><img src="assets/demo/avatar/johansson.png" alt=""><span>Anna Johansson</span></a></li>
+                            <li data-stats="busy"><a href="javascript:;"><img src="assets/demo/avatar/jackson.png" alt=""><span>Eric Jackson</span></a></li>
+                            <li data-stats="away"><a href="javascript:;"><img src="assets/demo/avatar/jobs.png" alt=""><span>Howard Jobs</span></a></li>
+                            <!--li data-stats="offline"><a href="javascript:;"><img src="assets/demo/avatar/watson.png" alt=""><span>Annie Watson</span></a></li>
+                            <li data-stats="offline"><a href="javascript:;"><img src="assets/demo/avatar/doyle.png" alt=""><span>Alan Doyle</span></a></li>
+                            <li data-stats="offline"><a href="javascript:;"><img src="assets/demo/avatar/corbett.png" alt=""><span>Simon Corbett</span></a></li>
+                            <li data-stats="offline"><a href="javascript:;"><img src="assets/demo/avatar/paton.png" alt=""><span>Polly Paton</span></a></li-->
+                        </ul>
+                        <span class="more"><a href="#">See all</a></span>
+                    </div>
+                </div>
+
+                <div class="widget">
+                    <div class="widget-heading">
+                        <a href="javascript:;" data-toggle="collapse" data-target="#taskbody"><h4>Pending Tasks <small>(5)</small></h4></a>
+                    </div>
+                    <div class="widget-body collapse in" id="taskbody">
+                        <div class="contextual-progress" style="margin-top:10px;">
+                            <div class="clearfix">
+                                <div class="progress-title">Backend Development</div>
+                                <div class="progress-percentage"><span class="label label-info">Today</span> 25%</div>
+                            </div>
+                            <div class="progress">
+                                <div class="progress-bar progress-bar-info" style="width: 25%"></div>
+                            </div>
+                        </div>
+                        <div class="contextual-progress">
+                            <div class="clearfix">
+                                <div class="progress-title">Bug Fix</div>
+                                <div class="progress-percentage"><span class="label label-primary">Tomorrow</span> 17%</div>
+                            </div>
+                            <div class="progress">
+                                <div class="progress-bar progress-bar-primary" style="width: 17%"></div>
+                            </div>
+                        </div>
+                        <div class="contextual-progress">
+                            <div class="clearfix">
+                                <div class="progress-title">Javascript Code</div>
+                                <div class="progress-percentage">70%</div>
+                            </div>
+                            <div class="progress">
+                                <div class="progress-bar progress-bar-success" style="width: 70%"></div>
+                            </div>
+                        </div>
+                        <div class="contextual-progress">
+                            <div class="clearfix">
+                                <div class="progress-title">Preparing Documentation</div>
+                                <div class="progress-percentage">6%</div>
+                            </div>
+                            <div class="progress">
+                                <div class="progress-bar progress-bar-danger" style="width: 6%"></div>
+                            </div>
+                        </div>
+                        <div class="contextual-progress">
+                            <div class="clearfix">
+                                <div class="progress-title">App Development</div>
+                                <div class="progress-percentage">20%</div>
+                            </div>
+                            <div class="progress">
+                                <div class="progress-bar progress-bar-orange" style="width: 20%"></div>
+                            </div>
+                        </div>
+
+                        <span class="more"><a href="ui-progressbars.htm">View all Pending</a></span>
+                    </div>
+                </div>
+
+
+
+                <div class="widget">
+                    <div class="widget-heading">
+                        <a href="javascript:;" data-toggle="collapse" data-target="#storagespace"><h4>Storage Space</h4></a>
+                    </div>
+                    <div class="widget-body collapse in" id="storagespace">
+                        <div class="clearfix" style="margin-bottom: 5px;margin-top:10px;">
+                            <div class="progress-title pull-left">1.31 GB of 1.50 GB used</div>
+                            <div class="progress-percentage pull-right">87.3%</div>
+                        </div>
+                        <div class="progress">
+                            <div class="progress-bar progress-bar-success" style="width: 50%"></div>
+                            <div class="progress-bar progress-bar-warning" style="width: 25%"></div>
+                            <div class="progress-bar progress-bar-danger" style="width: 12.3%"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="widget">
+                    <div class="widget-heading">
+                        <a href="javascript:;" data-toggle="collapse" data-target="#serverstatus"><h4>Server Status</h4></a>
+                    </div>
+                    <div class="widget-body collapse in" id="serverstatus">
+                        <div class="clearfix" style="padding: 10px 24px;">
+                            <div class="pull-left">
+                                <div class="easypiechart" id="serverload" data-percent="67">
+                                    <span class="percent"></span>
+                                </div>
+                                <label for="serverload">Load</label>
+                            </div>
+                            <div class="pull-right">
+                                <div class="easypiechart" id="ramusage" data-percent="20.6">
+                                    <span class="percent"></span>
+                                </div>
+                                <label for="ramusage">RAM: 422MB</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <!-- END RIGHTBAR -->
+        <div id="page-content">
+            <div id='wrap'>
+                <div id="page-heading">
+                    <ol class="breadcrumb">
+                        <li><a href="index.htm">Dashboard</a></li>
+                        <li>Extras</li>
+                    </ol>
+
+                    <h1>Blank</h1>
+                    @*<div class="options">
+                            <div class="btn-toolbar">
+                                <div class="btn-group hidden-xs">
+                                    <a href='#' class="btn btn-default dropdown-toggle" data-toggle='dropdown'><i class="fa fa-cloud-download"></i><span class="hidden-sm"> Export as  </span><span class="caret"></span></a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="#">Text File (*.txt)</a></li>
+                                        <li><a href="#">Excel File (*.xlsx)</a></li>
+                                        <li><a href="#">PDF File (*.pdf)</a></li>
+                                    </ul>
+                                </div>
+                                <a href="#" class="btn btn-default"><i class="fa fa-cog"></i></a>
+                            </div>
+                        </div>*@
+                </div>
+                <div class="container">
+
+
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="panel panel-midnightblue">
+                                <div class="panel-heading">
+                                    <h4></h4>
+                                    <div class="options">
+                                        <a href="javascript:;"><i class="fa fa-cog"></i></a>
+                                        <a href="javascript:;"><i class="fa fa-wrench"></i></a>
+                                        <a href="javascript:;" class="panel-collapse"><i class="fa fa-chevron-down"></i></a>
+                                    </div>
+                                   
+                                </div>
+                                <div class="panel-body collapse in">
+                             
+                                        @{Html.RenderPartial("_Alerts");}
+                                        @RenderBody()
+                                 
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+
+
+
+                </div> <!-- container -->
+            </div> <!--wrap -->
+        </div> <!-- page-content -->
+
+        <footer role="contentinfo">
+            <div class="clearfix">
+                <ul class="list-unstyled list-inline">
+                    <li>AVANT &copy; 2013</li>
+                    <button class="pull-right btn btn-inverse-alt btn-xs hidden-print" id="back-to-top"><i class="fa fa-arrow-up"></i></button>
+                </ul>
+            </div>
+        </footer>
+
+    </div> <!-- page-container -->
+    
+    @*@Scripts.Render("~/bundles/lib")
+        @Scripts.Render("~/bundles/custom")*@
+    @RenderSection("scripts", required: false)
+
+    <!--
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+
+    <script>!window.jQuery && document.write(unescape('%3Cscript src="assets/js/jquery-1.10.2.min.js"%3E%3C/script%3E'))</script>
+    <script type="text/javascript">!window.jQuery.ui && document.write(unescape('%3Cscript src="assets/js/jqueryui-1.10.3.min.js'))</script>
+    -->
+
+    <script src="~/CustomViews/Barebones/assets/js/jqueryui-1.10.3.min.js"></script>
+    <script src="~/CustomViews/Barebones/assets/js/jquery-1.10.2.min.js"></script>
+    
+   
+    <script src="~/CustomViews/Barebones/assets/js/bootstrap.min.js"></script>
+   
+    <script src="~/CustomViews/Barebones/assets/js/enquire.js"></script>
+   
+    <script src="~/CustomViews/Barebones/assets/js/jquery.cookie.js"></script>
+   
+    <script src="~/CustomViews/Barebones/assets/js/jquery.nicescroll.min.js"></script>
+    
+    <script src="~/CustomViews/Barebones/assets/plugins/codeprettifier/prettify.js"></script>
+   
+    <script src="~/CustomViews/Barebones/assets/plugins/easypiechart/easypiechart.min.js"></script>
+   
+    <script src="~/CustomViews/Barebones/assets/plugins/sparklines/jquery.sparklines.min.js"></script>
+   
+    <script src="~/CustomViews/Barebones/assets/plugins/form-toggle/toggle.min.js"></script>
+   
+   
+    <script src="~/CustomViews/Barebones/assets/js/placeholdr.js"></script>
+   
+    <script src="~/CustomViews/Barebones/assets/js/application.js"></script>
+  
+    <script src="~/CustomViews/Barebones/assets/demo/demo.js"></script>
+    <script src="~/CustomViews/Barebones/assets/plugins/datatables/jquery.dataTables.min.js"></script>
+    <script src="~/CustomViews/Barebones/assets/plugins/datatables/dataTables.bootstrap.js"></script>
+    <script src="~/CustomViews/Barebones/assets/demo/demo-datatables.js"></script>
+    <script src="~/Scripts/js/bootstrap.min.js"></script>
+    <script src="~/Scripts/js/highlight.js"></script>
+    <script src="~/Scripts/js/jquery.min.js"></script>
+    <script src="~/Scripts/js/main.js"></script>
+    <script src="~/Scripts/js/bootstrap-switch.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function ()
+        {
+            $(function () {
+                $("#switch-size").bootstrapSwitch();
+
+                //$("#switch-size").on('switchChange.bootstrapSwitch', function(event, state) {
+                //  if(state){
+                //    $("#state").html("the state is <b>" + state + "</b> the value that get posted is <b>" + $(this).val() + "</b>")
+                //  }
+                //  else{
+                //    $("#state").html("the state is <b>" + state + "</b> even the value is <b>" + $(this).val() + "</b> it doesn't get posted as the checkbox is <b>unchecked</b>")
+                //  }
+                //});
+            });
+        });
+      
+    </script>
+</body>
+</html>

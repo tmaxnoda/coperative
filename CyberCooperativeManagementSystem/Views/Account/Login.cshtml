@@ -1,0 +1,53 @@
+﻿@using CyberCooperativeManagementSystem.Areas.Account.Models
+@model LoginViewModel
+@{
+    ViewBag.Title = "Log in";
+    Layout = "~/Views/Shared/_LoginLayout.cshtml";
+}
+
+@*<h2>@ViewBag.Title.</h2>*@
+@*<div class="row">
+    <div class="col-md-8">*@
+        @*<section id="loginForm">*@
+            @using (Html.BeginForm("Login", "Account", new { area = "Account", ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form", style = "margin-bottom: 0px !important;" }))
+            { 
+
+                @Html.AntiForgeryToken()
+                
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="form-group">
+                    <div class="col-md-12">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                            @Html.TextBoxFor(m => m.UserName, new { @class = "form-control", placeholder = "Email" })
+                            @Html.ValidationMessageFor(m => m.UserName, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-12">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+                            @Html.PasswordFor(m => m.Password, new { @class = "form-control", placeholder = "Password" })
+                            @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                   
+                </div>
+                @*<div class="clearfix">
+                    <div class="pull-right"><label><input type="checkbox" name="RememberMe" style="margin-bottom: 20px" checked="null"> Remember Me</label></div>
+                </div>*@
+
+                <div class="panel-footer">
+
+                    <a href="@Url.Action("ForgotPassword",new {controller="Account", area="Account"})" class="pull-left btn btn-link" style="padding-left:0">Forgot password?</a>
+
+                    <div class="form-group pull-right">
+                       <input type="submit" value="Log in" class="btn btn-primary"/>  
+                    </div>
+               </div>
+               
+               
+         }
+        @*</section>*@
+    

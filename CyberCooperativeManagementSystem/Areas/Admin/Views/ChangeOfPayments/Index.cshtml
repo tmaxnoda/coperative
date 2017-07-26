@@ -1,0 +1,105 @@
+﻿ @model CyberCooperativeManagementSystem.Areas.Admin.Models.ChangeofMonthlyPaymentViewModel
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_ChangeOfPaymentLayout.cshtml";
+}
+
+
+
+<button class="btn btn-inverse btn-label"><i class="fa fa-archive"></i> Change of payment</button> 
+<hr />
+@using (Html.BeginForm("Create", "ChangeOfPayments"))
+{
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="form-horizontal row-border" style="border-radius: 0px;">
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.regno, "Regis Num", new { @class = "control-label col-md-2" })
+            
+                <div class="col-md-10">
+                        <select class="js-example-responsive" name="regno" id="combobox"style="width: 50%">
+                            <option value="3620194" selected="selected">Registration Number</option>
+
+                        </select>
+                       @Html.ValidationMessageFor(model => model.regno, null, new { @class = "text-danger" })
+                 </div>
+
+        </div>     
+          
+        <div class="form-group">
+            <label class="control-label col-md-2">Name</label>
+            <div class="col-md-10">
+                <div class="input-group">
+                    <span class="input-group-addon">Name</span>
+                    <input class="form-control" name="Name" type="text" placeholder="Memeber Name" disabled="disabled">
+
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">      
+            <label class="control-label col-md-2">Old payment</label>
+            <div class="col-md-10">
+                <div class="input-group">
+                    <span class="input-group-addon">N</span>
+                    <input class="form-control" name="div1" type="text" disabled="disabled">
+
+                </div>
+            </div>
+         </div>
+
+       
+        <div class="form-group">
+            @Html.LabelFor(model => model.Amount, "New savings", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.Amount, new { @class = "form-control", @style = "text-transform:uppercase" })
+                @Html.ValidationMessageFor(model => model.Amount, null, new { @class = "text-danger" })
+            </div>
+        </div>
+        
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Month, "Month", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+
+                @Html.DropDownList("Month", new List<SelectListItem>()
+                {new SelectListItem() { Text = "January", Value = "January" },
+                new SelectListItem() { Text = "February", Value = "February" },
+                 new SelectListItem() { Text = "March", Value = "March" },
+                 new SelectListItem() { Text = "April", Value ="April" },
+                 new SelectListItem() { Text = "May", Value ="May" },
+                 new SelectListItem() { Text = "June", Value = "June" },
+                 new SelectListItem() { Text = "July", Value ="July" },
+                 new SelectListItem() { Text = "August", Value = "August" },
+                 new SelectListItem() { Text = "September", Value ="September" },
+                 new SelectListItem() { Text = "October", Value =  "October" },
+                 new SelectListItem() { Text = "November", Value = "November" },
+                 new SelectListItem() { Text = "December", Value ="December" }},
+                 htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Month, "", new { @class = "text-danger" })
+
+            </div>
+
+        </div>
+
+       
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Year, "Year", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.Year, new { @class = "form-control", @style = "text-transform:uppercase" })
+                @Html.ValidationMessageFor(model => model.Year, null, new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-6 col-md-6">
+                <input type="submit"  onclick="javascript: return SubmitForm();" value="Submit" class="btn btn-primary" />
+            </div>
+        </div>
+        
+    </div>
+
+}
+

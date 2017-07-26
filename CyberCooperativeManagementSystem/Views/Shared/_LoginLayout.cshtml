@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Avant</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Avant">
+    <meta name="author" content="The Red Team">
+
+    <!-- <link href="assets/less/styles.less" rel="stylesheet/less" media="all"> -->
+    @*<link rel="stylesheet" href="assets/css/styles.min.css?=113">*@
+    <link href="~/CustomViews/Barebones/assets/css/styles.min.css?=113" rel="stylesheet" />
+    <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600' rel='stylesheet' type='text/css'>
+    <link href="~/CustomViews/Barebones/assets/fonts/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+    
+    <script type="text/javascript" src="~/CustomViews/Barebones/assets/js/less.js"></script>
+</head>
+<body class="focusedform">
+
+    <div class="verticalcenter">
+        @*<a href="index.htm"><img src="assets/img/logo-big.png" alt="Logo" class="brand" /></a>*@
+        <div class="panel panel-primary">
+            <div class="panel-body">
+                <h4 class="text-center" style="margin-bottom: 25px;">Log in  @*<a href="@Url.Action("Register",new {controller="Account", area="Account"})">Sign Up</a>*@</h4>
+                @RenderBody()
+            </div>
+           
+        </div>
+    </div>
+
+</body>
+</html>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

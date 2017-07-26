@@ -1,0 +1,97 @@
+﻿@using CyberCooperative_Model
+@model IEnumerable<LoanRepayment_Table>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_listOfEmployeeViews.cshtml";
+}
+<button class="btn btn-inverse btn-label"><i class="fa fa-archive"></i> Loan repayment archive</button> 
+<hr />
+<hr />
+<table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered datatables" id="myTable">
+
+    <thead>
+        <tr>
+            <th>
+                Name
+            </th>
+            <th>
+                Reg Num
+            </th>
+            <th>
+                Amount
+            </th>
+            <th>
+                Year
+            </th>
+            <th>
+                Month
+            </th>
+            <th>
+                loan repayment
+            </th>
+
+            <th>
+               Monthly payment
+            </th>
+
+            <th>
+               Action
+            </th>
+
+            
+
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var item in Model)
+        {
+
+            <tr class="odd gradeX">
+                <td>
+                    @item.FullName
+                </td>
+                <td>
+                    @item.RegistrationNumber
+                </td>
+                <td>
+                    @Convert.ToDecimal(item.Amount).ToString("#,##0.00")
+                   @*@item.Amount*@
+                </td>
+
+                <td>
+                    @item.Year
+                </td>
+                <td>
+                    @item.Month
+                </td>
+                <td>
+                    @*@item.RealLoanPayment*@
+                    @Convert.ToDecimal(item.RealLoanPayment).ToString("#,##0.00")
+                </td>
+
+                <td>
+                    @Convert.ToDecimal(item.MonthlyContribution).ToString("#,##0.00")
+                    @*@item.MonthlyContribution*@
+                </td>
+                <td>
+                    <div class="btn-group">
+                        @*<a class="btn btn-default" href="#">Actions</a>*@
+                        <a class="btn btn-info dropdown-toggle" aria-expanded="false" href="#" data-toggle="dropdown"><span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            @*<li><a href='@Url.Action("Details", "Loan_RepaymentController",new { id=item.Id})'>Details</a></li>
+                            <li><a href='@Url.Action("Delete","LoanTimeline",new { id=item.Id})'>Delete</a></li>
+                            <li><a href='@Url.Action("Edit", "LoanTimeline",new { id=item.Id})'>Edit</a></li>*@
+
+                            <li><a class="btn btn-info" href='@Url.Action("Details","Loan_Repayment",new { id=item.Id})'><i class="fa fa-info-circle fa-spin fa-3x fa-fw" aria-hidden="true"></i></a></li>
+                            <li><a class="btn btn-warning" href='@Url.Action("Edit","Loan_Repayment",new { id=item.Id})'><i class="fa fa-edit fa-spin fa-3x fa-fw" aria-hidden="true"></i></a></li>
+                           
+
+                        </ul>
+                    </div>
+                </td>
+            </tr>
+
+        }
+    </tbody>
+</table>

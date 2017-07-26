@@ -1,0 +1,313 @@
+﻿@using CyberCooperative_Model
+@model IEnumerable<Loan_Table>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_listOfEmployeeViews.cshtml";
+}
+<button class="btn btn-inverse btn-label"><i class="fa fa-archive"></i>Loan Archives</button> 
+<hr />
+<hr />
+<table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered datatables" id="myTable">
+
+    <thead>
+        <tr>
+            <th>
+                Name
+            </th>
+
+            <th>
+                Amt Borrowed
+            </th>
+            <th>
+                Intrest
+            </th>
+            <th>
+                Months
+            </th>
+            <th>
+                Loan due
+            </th>
+            <th>
+                Repayment
+            </th>
+
+            <th>
+                Starts
+            </th>
+
+            <th>
+                End
+            </th>
+
+
+            <th>
+                IsActive?
+            </th>
+            <td>
+                Action
+            </td>
+
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var item in Model)
+        {
+
+            <tr class="odd gradeX">
+                <td>
+                    @item.Name
+                </td>
+
+                <td>
+                    @Convert.ToDecimal(item.AmountBorrowed).ToString("#,##0.00")
+                    @*@item.AmountBorrowed*@
+                </td>
+
+                <td>
+                    @Convert.ToDecimal(item.RepaymentInterest).ToString("#,##0.00")
+                    @*@item.RepaymentInterest*@
+                </td>
+                <td>
+                    @Convert.ToDecimal(item.RepaymentPeriod).ToString("#,##0.00")
+                    @*@item.RepaymentPeriod*@
+                </td>
+                <td>
+                    @*@item.TotalLoanDue*@
+                    @Convert.ToDecimal(item.TotalLoanDue).ToString("#,##0.00")
+                </td>
+
+                <td>
+                    @*@item.TotalMonthlyRepaymentWithContributions*@
+                    @Convert.ToDecimal(item.TotalMonthlyRepaymentWithContributions).ToString("#,##0.00")
+                </td>
+                <td>
+                    @Convert.ToDateTime(item.MonthBegin).ToString("MMM-yyy")
+                    @*@item.MonthBegin*@
+                </td>
+                <td>
+                   
+                    @item.MonthEnding
+                </td>
+                <td>
+                    @item.loanStatus
+                </td>
+                <td>
+                        <div class="btn-group">
+                            @*<a class="btn btn-default" href="#">Actions</a>*@
+                            <a class="btn btn-info dropdown-toggle" aria-expanded="false" href="#" data-toggle="dropdown"><span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                @*<li><a href='@Url.Action("Details", "Loan_detail",new { id=item.Id})'>Details</a></li>
+                                <li><a href='@Url.Action("Delete","Loan_detail",new { id=item.Id})'>Delete</a></li>
+                                <li><a href='@Url.Action("Edit", "Loan_detail",new { id=item.Id})'>Edit</a></li>*@
+
+                                <li><a class="btn btn-info" href='@Url.Action("Details","Loan_detail",new { id=item.Id})'><i class="fa fa-info-circle fa-spin fa-3x fa-fw" aria-hidden="true"></i></a></li>
+                                <li><a class="btn btn-warning" href='@Url.Action("Edit","Loan_detail",new { id=item.Id})'><i class="fa fa-edit fa-spin fa-3x fa-fw" aria-hidden="true"></i></a></li>
+                                <li>
+                                    @*<div class="delete-section">*@
+                                    @*<a class="delete-link" href="@Url.Action("Delete", new {id = item.Id})">Delete</a>*@
+                                    <a class="btn btn-danger" href='@Url.Action("Delete","Loan_detail",new { id=item.Id})'><i class="fa fa-trash-o fa-spin fa-3x fa-fw" aria-hidden="true"></i></a>
+                                    @*<div class="btn btn-primary delete-confirm" style="display:none" data-delete-id="@item.Id">Confirm Delete</div>*@
+                                    @*</div>*@
+
+                                </li>
+
+
+
+                            </ul>
+                        </div>
+                    </td>
+            </tr>
+
+        }
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@*@model IEnumerable<CyberCooperative_Model.Loan_Table>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_listOfEmployeeViews.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Employee_Table.FirstName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LoanInterestConfiguration_Table.id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AmountBorrowed)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MonthBegin)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.YearBegin)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RepaymentPeriod)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RepaymentInterest)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MonthlyRepaymentAmount)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MonthEnding)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.YearEnding)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MonthBeginString)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.YearBeginString)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MonthEndingString)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.YearEndingString)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.loanStatus)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GuarantorIdOne)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AccountNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RegistrationNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GuarantorIdTwo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TotalMonthlyRepaymentWithContributions)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TotalLoanRepaid)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TotalLoanDue)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Employee_Table.FirstName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LoanInterestConfiguration_Table.id)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AmountBorrowed)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MonthBegin)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.YearBegin)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RepaymentPeriod)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RepaymentInterest)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MonthlyRepaymentAmount)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MonthEnding)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.YearEnding)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MonthBeginString)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.YearBeginString)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MonthEndingString)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.YearEndingString)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.loanStatus)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GuarantorIdOne)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AccountNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RegistrationNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GuarantorIdTwo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TotalMonthlyRepaymentWithContributions)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TotalLoanRepaid)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TotalLoanDue)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>*@

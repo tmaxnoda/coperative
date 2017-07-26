@@ -1,0 +1,91 @@
+﻿@model IEnumerable<CyberCooperative_Model.LoanTrasactionTimeline>
+
+@{
+
+    Layout = "~/Views/Shared/_listOfEmployeeViews.cshtml";
+}
+
+
+<table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered datatables" id="myTable">
+
+    <thead>
+        <tr>
+            <th>
+                Name
+            </th>
+            <th>
+                Loan Period
+            </th>
+            <th>
+                updated month
+            </th>
+            <th>
+                Loan due
+            </th>
+            <th>
+                Paid loan
+            </th>
+            <th>
+                Loan bal
+            </th>
+
+            <th>
+                Active?
+            </th>
+            <th>
+                Action
+            </th>
+
+
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var item in Model)
+        {
+
+            <tr class="odd gradeX">
+                <td>
+                    @item.Name
+                </td>
+                <td>
+                    @item.Loan_Table.RepaymentPeriod
+                </td>
+                <td>
+
+                    @Convert.ToDateTime(item.Month).ToString("MMM-yyy")
+                </td>
+
+                <td>
+                    @item.TotalLoandue
+                </td>
+                <td>
+                    @item.TotalLoanPaid
+                </td>
+                <td>
+                    @item.BalanceTobePaid
+                </td>
+
+                <td>
+                    @item.Status
+                </td>
+                <td>
+                    <div class="btn-group">
+                        <a class="btn btn-default" href="#">Actions</a>
+                        <a class="btn btn-info dropdown-toggle" aria-expanded="false" href="#" data-toggle="dropdown"><span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href='@Url.Action("Details", "LoanTimeline",new { id=item.Id})'>Details</a></li>
+                            <li><a href='@Url.Action("Delete","LoanTimeline",new { id=item.Id})'>Delete</a></li>
+                            <li><a href='@Url.Action("Edit", "LoanTimeline",new { id=item.Id})'>Edit</a></li>
+
+
+
+
+                        </ul>
+                    </div>
+                </td>
+            </tr>
+
+        }
+    </tbody>
+</table>

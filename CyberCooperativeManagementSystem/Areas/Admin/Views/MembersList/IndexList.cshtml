@@ -1,0 +1,69 @@
+﻿@model IEnumerable<CyberCooperative_Model.Employee_Table>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_customListLayout.cshtml";
+}
+
+<table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered datatables" id="myTable">
+    <thead>
+        <tr>
+            <th>
+                First Name
+            </th>
+            <th>
+                Last name
+            </th>
+            <th>
+                Reg Num
+            </th>
+            <th>
+                Monthly Savings
+            </th>
+            <th>
+                month
+            </th>
+            <th>
+                Action
+            </th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+
+            <tr class="odd gradeX">
+                <td>
+                    @item.FirstName
+                </td>
+                <td>
+                    @item.LastName
+                </td>
+                <td>
+                    @item.RegistrationNumber
+                </td>
+                <td>
+                    @item.MonthlySavings
+                </td>
+
+                <td>
+                    @item.Month
+                </td>
+                <td>
+                    <div class="btn-group">
+                        <a class="btn btn-default" href="#">Actions</a>
+                        <a class="btn btn-info dropdown-toggle" aria-expanded="false" href="#" data-toggle="dropdown"><span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href='@Url.Action("Details","MembersList",new { id=item.Id})'>Details</a></li>
+                            <li><a href='@Url.Action("Delete","MembersList",new { id=item.Id})'>Delete</a></li>
+                            <li><a href='@Url.Action("Edit","MembersList",new { id=item.Id})'>Edit</a></li>
+
+                        </ul>
+                    </div>
+                </td>
+            </tr>
+
+        }
+    </tbody>
+</table>

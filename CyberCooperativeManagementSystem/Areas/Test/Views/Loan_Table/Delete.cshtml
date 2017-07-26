@@ -1,0 +1,209 @@
+﻿@model CyberCooperative_Model.Loan_Table
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_GeneralViews.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Loan_Table</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Employee_Table.FirstName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Employee_Table.FirstName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LoanInterestConfiguration_Table.id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LoanInterestConfiguration_Table.id)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AmountBorrowed)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AmountBorrowed)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MonthBegin)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MonthBegin)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.YearBegin)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.YearBegin)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RepaymentPeriod)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RepaymentPeriod)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RepaymentInterest)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RepaymentInterest)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MonthlyRepaymentAmount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MonthlyRepaymentAmount)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MonthEnding)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MonthEnding)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.YearEnding)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.YearEnding)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MonthBeginString)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MonthBeginString)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.YearBeginString)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.YearBeginString)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MonthEndingString)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MonthEndingString)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.YearEndingString)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.YearEndingString)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.loanStatus)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.loanStatus)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GuarantorIdOne)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GuarantorIdOne)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AccountNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AccountNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RegistrationNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RegistrationNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GuarantorIdTwo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GuarantorIdTwo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TotalMonthlyRepaymentWithContributions)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TotalMonthlyRepaymentWithContributions)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TotalLoanRepaid)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TotalLoanRepaid)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TotalLoanDue)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TotalLoanDue)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

@@ -1,0 +1,64 @@
+﻿
+@model CyberCooperativeManagementSystem.Areas.Admin.Models.LoanViewModel
+@{
+    ViewBag.Title = "TotalSavings";
+    Layout = "~/Views/Shared/_AdminTotalAmount.cshtml";
+}
+
+<h2>TotalSavings</h2>
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <h4><i class="fa fa-cloud"></i>Total Savings</h4>
+    </div>
+    <div class="panel-body">
+
+
+        <div class="form-horizontal" style="border-radius: 0px;">
+            <div class="form-group">
+                @Html.Label("Reg Number", null, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <div class="input-group">
+                        <span class="input-group-addon" id="basic-addon2">Reg Number</span>
+                        <input type="text" value="CYB/MUL/" maxlength="12" name="EmployeeId" id="usercombobox" class="form-control" placeholder="Enter Registration number" aria-describedby="basic-addon2">
+                    </div>
+                </div>
+
+
+                @Html.ValidationMessageFor(model => model.EmployeeId, "", new { @class = "text-danger" })
+            </div>
+
+
+            <div class="form-group">
+                @Html.Label("Name", null, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <div class="input-group">
+                        <span class="input-group-addon" id="basic-addon2">Name</span>
+                        <input type="text" name="userName" class="form-control" placeholder="Memeber name" aria-describedby="basic-addon2" readonly id="div1">
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                @Html.Label("Principal", null, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <div class="input-group">
+
+                        <input type="text" name="usersHistory" class="form-control" placeholder="overall total savings" readonly>
+
+                    </div>
+
+                </div>
+            </div>
+            <div class="form-group">
+
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Generate" class="btn btn-primary" id="getAmount" />
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+

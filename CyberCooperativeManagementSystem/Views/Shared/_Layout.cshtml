@@ -1,0 +1,169 @@
+﻿<!DOCTYPE html>
+<html ng-app="mvcCRUDApp">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
+
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("Cyber-Cooperative", "Index", "Home", new { area = "Common" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    @*<li>@Html.ActionLink("Home", "Index", new { Controller = "Home", Area = "Common" })</li>
+                    <li>@Html.ActionLink("List of Registered Memeber", "Index", new { Controller = "ListRegisteredMemebers", Area = "Admin" })</li>
+                    <li>@Html.ActionLink("Join US", "Index", new { Controller = "EmployeeRegistrationForm", Area = "Admin" })</li>
+                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                    <li>@Html.ActionLink("About", "About", "Home")</li>
+                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>*@
+                    @*<li>@Html.ActionLink("Role", "Index", new {controller = "Role", area = "Account" }))</li>*@
+                </ul>
+
+                @Html.Partial("_LoginPartial")
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        @{ Html.RenderPartial("_Alerts"); }
+        @RenderBody()
+        <hr />
+        <hr />
+        <footer>
+            <p> @DateTime.Now.Year - My ASP.NET Application</p>
+        </footer>
+        
+        
+    </div>
+   
+   
+    @*@Scripts.Render("~/bundles/jquery")*@
+    @Scripts.Render("~/bundles/lib")
+    @Scripts.Render("~/bundles/custom")
+    @RenderSection("scripts", required: false)
+
+   <script type="text/javascript">
+     
+       $(".js-example-responsive").select2({
+
+           ajax: {
+               url: '@Url.Action("searchForRegNumber", "ChangeOfPayments")',
+               dataType: 'json',
+               delay: 250,
+
+               data: function (params) {
+
+                   return {
+                       q: params.term,
+                       // page: params.page
+                   };
+
+               },
+
+
+               processResults: function (data, search) {
+
+
+                   return {
+                       results: $.map(data, function (item) {
+                           return {
+
+                               text: item.RegNum,
+                               id: item.Id,
+                           }
+                       })
+                   }
+
+
+
+               },
+
+               cache: true
+           },
+
+           templateResult: function (item) {
+               if (item.loading) return item.text;
+               return item.text;
+           },
+           escapeMarkup: function (markup) { return markup; }, // let our custom formatter work
+           minimumInputLength: 1,
+
+
+
+       });
+
+       function ShowCustomDialogFailed() {
+
+           ShowDialogBox('Warning', 'you cannot borrow more than times 2 of your total savings.', 'Ok', '', 'GoToAssetList', null);
+       }
+
+       function ShowCustomDialogSuccess() {
+
+           ShowDialogBox('Warning', 'You are qualify for the loan',  'Ok', '', 'GoToAssetList', null);
+       }
+
+       function ShowDialogBox(title, content, btn1text, btn2text, functionText, parameterList) {
+           var btn1css;
+           var btn2css;
+
+           if (btn1text == '') {
+               btn1css = "hidecss";
+           } else {
+               btn1css = "showcss";
+           }
+
+           if (btn2text == '') {
+               btn2css = "hidecss";
+           } else {
+               btn2css = "showcss";
+           }
+           $("#lblMessage").html(content);
+
+           $("#dialog").dialog({
+               resizable: false,
+               title: title,
+               modal: true,
+               width: '400px',
+               height: 'auto',
+               bgiframe: false,
+               hide: { effect: 'scale', duration: 400 },
+
+               buttons: [
+                               {
+                                   text: btn1text,
+                                   "class": btn1css,
+                                   click: function () {
+
+                                       $("#dialog").dialog('close');
+
+                                   }
+                               },
+                               {
+                                   text: btn2text,
+                                   "class": btn2css,
+                                   click: function () {
+                                       $("#dialog").dialog('close');
+                                   }
+                               }
+               ]
+           });
+       }
+   </script>
+
+
+
+
+</body>
+</html>

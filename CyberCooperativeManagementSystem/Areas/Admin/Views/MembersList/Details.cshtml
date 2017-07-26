@@ -1,0 +1,172 @@
+﻿@model CyberCooperative_Model.Employee_Table
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_listOfEmployeeViews.cshtml";
+}
+
+
+
+<style>
+/*.dl-horizontal dt
+{
+    white-space: normal;
+    width: 200px;
+}*/
+</style>
+<h2>Details</h2>
+
+<div class="panel-body">
+    <h4>@Model.FirstName 's Profile</h4>
+    <hr />
+    <div class="panel-body">
+
+        <dl class="dl-horizontal">
+            <dt>
+                <span>
+                    <a href="#" class="thumbnail">
+                        <img style="width:200px;height:150px;" src="@Url.Action("ViewImage", "MembersList", new { id = @Model.Id })" alt="@Model.FirstName" />
+                    </a>
+                </span>
+            </dt>
+            <dd>
+
+            </dd>
+            <dt class="table-success">
+                @Html.DisplayNameFor(model => model.FullName)
+            </dt>
+
+            <dd class="table-success">
+                @Html.DisplayFor(model => model.FullName)
+            </dd>
+
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Gender)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Gender)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Department)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Department)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.RegistrationNumber)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.RegistrationNumber)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.AccountNumber)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.AccountNumber)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.PhoneNumber)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.PhoneNumber)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.MonthlySavings)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.MonthlySavings)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.NumberOfSharesAppliedFor)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.NumberOfSharesAppliedFor)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.ValuesOfShares)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.ValuesOfShares)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Date)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Date)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.IsActive)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.IsActive)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.PostalAddress)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.PostalAddress)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.ContactAddress)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.ContactAddress)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Occupation)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Occupation)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.NextOfKin)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.NextOfKin)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.NextOfKinRelationship)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.NextOfKinRelationship)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.NextOfKinTelephoneNumber)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.NextOfKinTelephoneNumber)
+            </dd>
+
+        </dl>
+    </div>
+    </div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }, new { @class = "btn btn-primary btn-md" })
+    @Html.ActionLink("List", "Index",null,new{@class = "btn btn-primary btn-md" })
+</p>

@@ -1,0 +1,236 @@
+﻿@*@model CyberCooperative_Model.Loan_Table*@
+@model CyberCooperativeManagementSystem.Areas.Admin.Models.LoanViewModel
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Loanlayout.cshtml";
+}
+<button class="btn btn-inverse btn-label"><i class="fa fa-archive"></i>Loan</button> 
+<hr />
+<hr />
+
+        @using (Html.BeginForm("Create","Loan"))
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-horizontal" style="border-radius: 0px;">
+
+
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.EmployeeId, "Reg Number", htmlAttributes: new { @class = "control-label col-md-2" })
+
+                    <div class="col-md-10">
+
+                        <select class="js-example-responsive" name="EmployeeId" id="combobox" style="width: 50%">
+                            <option value="3620194" selected="selected">Registration Number</option>
+                        </select>
+                    </div>
+                    @Html.ValidationMessageFor(model => model.EmployeeId, "", new { @class = "text-danger" })
+                </div>
+
+
+                <div class="form-group">
+                    @Html.Label("Name", null, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        <div class="input-group">
+                            <span class="input-group-addon" id="basic-addon2">Name</span>
+                            <input type="text" name="Name" class="form-control" placeholder="Memeber name" aria-describedby="basic-addon2" readonly id="div1">
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    @Html.Label("Payment", null, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        <div class="input-group">
+                            <span class="input-group-addon" id="basic-addon2">N</span>
+                            <input type="text" name="div1Text" class="form-control" placeholder="Payment" aria-describedby="basic-addon2" readonly id="div1">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.Label("Reg Number", null, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        <div class="input-group">
+                            <span class="input-group-addon" id="basic-addon2">Reg</span>
+                            <input type="text" name="RegistratinNum" class="form-control" placeholder="Registration Number" aria-describedby="basic-addon2">
+                        </div>
+                    </div>
+                </div>
+
+
+      
+                <div class="form-group">
+                    @Html.Label("Account Number", null, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        <div class="input-group">
+                            <span class="input-group-addon" id="basic-addon2">Acc</span>
+                            <input type="text" name="AccountNum" class="form-control" placeholder="Account Number" aria-describedby="basic-addon2">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.Label("Historical Payment", null, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+
+                        <div class="input-group">
+                            <span class="input-group-addon" id="basic-addon2">N</span>
+                            <input type="text" name="div1Text2" class="form-control" placeholder="Historical payment" aria-describedby="basic-addon2" readonly id="div1">
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.AmountBorrowed,
+                   
+                   
+                   htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        <div class="input-group">
+                            <span class="input-group-addon" id="basic-addon2">N</span>
+                            @Html.EditorFor(model => model.AmountBorrowed, new { htmlAttributes = new { @class = "form-control", id = "moneyBorrowed", placeholder = "Loan Amount" } })
+                        </div>
+                        @Html.ValidationMessageFor(model => model.AmountBorrowed, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.RepaymentPeriod,"Months", htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        <div class="input-group">
+                            <span class="input-group-addon" id="basic-addon2">N</span>
+                            @Html.EditorFor(model => model.RepaymentPeriod, new { htmlAttributes = new { @class = "form-control", id = "borrowedMonth", placeholder = "For how many months" } })
+                        </div>
+                        @Html.ValidationMessageFor(model => model.RepaymentPeriod, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.MonthBegin, "Start Date", htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-6">
+                        <div class="input-group">
+                            @*<span class="input-group-addon" id="basic-addon2">Date</span>*@
+                            <input type="text" class="form-control" name="MonthBegin" id="datepicker" placeholder="Start Date">
+                            <span class="input-group-btn">
+                                <button class="btn btn-primary" id="calculate" type="button">Go!</button>
+                            </span>
+                        </div>
+
+                        @Html.ValidationMessageFor(model => model.MonthBegin, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.MonthEnding, "Finished Date", htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        <div class="input-group">
+                            <span class="input-group-addon" id="basic-addon2">FinDate</span>
+                            <input type="text" class="form-control" name="MonthEnding" placeholder="Finished Date" readonly>
+
+                        </div>
+
+                        @Html.ValidationMessageFor(model => model.MonthEnding, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.RepaymentInterest, "Payment Interest", htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        <div class="input-group">
+                            <span class="input-group-addon" id="basic-addon2">%</span>
+                            @Html.EditorFor(model => model.RepaymentInterest, new { htmlAttributes = new { @class = "form-control", placeholder = "Interest" } })
+                        </div>
+                        @Html.ValidationMessageFor(model => model.RepaymentInterest, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.MonthlyRepaymentAmount, "Monthly Repayment", htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        <div class="input-group">
+                            <span class="input-group-addon" id="basic-addon2">N</span>
+                            @Html.EditorFor(model => model.MonthlyRepaymentAmount, new { htmlAttributes = new { @class = "form-control", placeholder = "Monthly loan Repayment" } })
+                        </div>
+                        @Html.ValidationMessageFor(model => model.MonthlyRepaymentAmount, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.TotalMonthlyRepaymentWithContributions, "Total Monthly Payment", htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        <div class="input-group">
+                            <span class="input-group-addon" id="basic-addon2">N</span>
+                            @Html.EditorFor(model => model.TotalMonthlyRepaymentWithContributions, new { htmlAttributes = new { @class = "form-control", placeholder = " Total Monthly Repayment" } })
+                        </div>
+                        @Html.ValidationMessageFor(model => model.TotalMonthlyRepaymentWithContributions, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.loanStatus,"Isactive?", htmlAttributes: new { @class = "control-label col-sm-2" })
+                    <div class="col-sm-6">
+                        <input id="switch-size" type="checkbox" name="loanStatus" data-size="mini" value="true">
+                        @Html.ValidationMessageFor(model => model.loanStatus, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.GuarantorIdOne,"First Guarantor", htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+
+                        <select class="js-example-responsive" name="GuarantorIdOne" id="combobox" style="width: 50%">
+                            <option value="3620194" selected="selected">Registration Number</option>
+                        </select>
+                        @Html.ValidationMessageFor(model => model.GuarantorIdOne, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.GuarantorIdTwo,"Second Guarantor", htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        <select class="js-example-responsive" name="GuarantorIdTwo" id="combobox" style="width: 50%">
+                            <option value="3620194" selected="selected">Registration Number</option>
+                        </select>
+                        @Html.ValidationMessageFor(model => model.GuarantorIdTwo, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                
+
+
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input  onclick="javascript: return SubmitForm();" type="submit" value="Create" class="btn btn-default" id="button" />
+                    </div>
+                </div>
+
+                <div id="dialog" title="Alert message" style="display: none">
+                    <div class="ui-dialog-content ui-widget-content">
+                        <p>
+                            <span class="ui-icon ui-icon-alert" style="float: left; margin: 0 7px 20px 0"></span>
+                            <label id="lblMessage">
+                            </label>
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        }
+
+
+
+    
+
+
+

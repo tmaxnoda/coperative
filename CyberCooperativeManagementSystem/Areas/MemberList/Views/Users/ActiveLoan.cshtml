@@ -1,0 +1,95 @@
+﻿@model CyberCooperative_Model.LoanTrasactionTimeline
+
+@{
+    ViewBag.Title = "ActiveLoan";
+    Layout = "~/Views/Shared/View.cshtml";
+}
+
+
+@if (ViewBag.displayMenu == "Yes")
+{
+    <h1>Welcome Admin. Now you can create user Role.</h1>  
+
+    <h3>
+        <li>@Html.ActionLink("Manage Role", "Index", "Role")</li>
+    </h3>  
+}
+else
+{
+
+
+    <button class="btn btn-inverse btn-label"><i class="fa fa-archive"></i> @Model.Name Active Loan</button> 
+    <table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered datatables" id="myTable">
+        <thead>
+            <tr>
+                <th>
+                    Reg Number
+                </th>
+                <th>
+                    Name
+                </th>
+                <th>
+                   Account Number
+                </th>
+                <th>
+                   Total loan due
+                </th>
+                <th>
+                    Loan Paid
+                </th>
+                <th>
+                    Balance
+                </th>
+                <th>
+                    Last Update
+                </th>
+                
+                <th>
+                    Loan Status
+                </th>
+
+
+            </tr>
+        </thead>
+        <tbody>
+
+           
+                <tr class="odd gradeX">
+                    <td>
+                        @Model.RegistrationNumber
+                    </td>
+                    <td>
+                        @Model.Name
+                    </td>
+                    <td>
+                        @Model.AccountNumber
+                    </td>
+                    <td>
+                        @*@Model.TotalLoandue*@
+                        @Convert.ToDecimal(Model.TotalLoandue).ToString("#,##0.00")
+                    </td>
+
+                    <td>
+                        @*@Model.TotalLoanPaid*@
+                        @Convert.ToDecimal(Model.TotalLoanPaid).ToString("#,##0.00")
+                    </td>
+                    <td>
+                        @*@Model.BalanceTobePaid*@
+                        @Convert.ToDecimal(Model.BalanceTobePaid).ToString("#,##0.00")
+                    </td>
+
+                    <td>
+                        @Convert.ToDateTime(Model.Month).ToString("MMM-yyy")
+                    </td>
+                   
+                    <td>
+                        @Model.Status
+                    </td>
+                </tr>
+
+        
+        </tbody>
+    </table>
+
+}  
+
